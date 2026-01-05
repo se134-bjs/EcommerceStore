@@ -1,0 +1,6 @@
+{
+    "name":"live",
+    "app":{
+        "cfengine":"lucee@6"
+    }
+}
