@@ -1,4 +1,5 @@
 <cfoutput>
+<cfdump  var="#output#">
 <h1>Form is</h1>
 <cfdump  var="#form#">
 <h1>Session is</h1>
@@ -14,7 +15,7 @@
             <cfset createDirectory = FORM.createDirectory> 
             <!--- directoryExists ("D:\wheels_proj\CoreProjects\Authentication\adminProduct") --->
                             <cftry> 
-                    <cfset DirectoryCreate("D:\wheels_proj\CoreProjects\Authentication\Media\#createDirectory#")> 
+                    <cfset DirectoryCreate("D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory#")> 
                     
                         <b>Directory #createDirectory# successfully created.</b>
                     
@@ -38,7 +39,7 @@
             <!--- create directory code is till here --->
         <cffile 
             action="uploadAll"
-            destination="D:\wheels_proj\CoreProjects\Authentication\Media\#createDirectory#"
+            destination="D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory#"
             fileField="fileData"
             nameConflict="skip"
             result = "result"
