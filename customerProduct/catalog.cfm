@@ -23,7 +23,7 @@
                         <div class="col-sm-4">
                             <!--- <button> --->
                                 <div class="row-sm-4">Product Name: #name#</div>
-                                <div class="row-sm-4"> <div class="fixed-size-container"><img src="#media#&"/"&#name#" class="row-sm-4"></div></div>
+                                <div class="row-sm-4"> <div class="fixed-size-container"><img src="\Ecommerce\EcommerceStore\Media" class="row-sm-4"></div></div>
                                 <div class="row-sm-4">Price: #price#</div>
                                 <div class="row-sm-4">Available : #quantity# Items</div>
                             <!--- </button> --->    
