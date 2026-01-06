@@ -3,7 +3,7 @@
     <cfinclude  template="/includes/adminauthentication.cfm">
     <cfinclude  template="/bootstrap/adminsidebar.cfm">
         <h2>Insert Product Information</h2>
-            <form name="formis" method="post" action="iproduct.cfm" enctype="multipart/form-data" preservedata="true" >
+            <form name="forms" method="post" action="iproduct.cfm" enctype="multipart/form-data" preservedata="true" >
                 <table border="2">
                     <tr>
                         <th><label>Product Name</label></th>
@@ -22,8 +22,12 @@
                     <tr>
                         <td><input type="string" name="name"></td>
                         <td><input type="string" name="description"></td>
-                        <td>    
-                        <input type="file" name="fileData">
+                        <td>
+                        <input type="file" name="fileData1">
+                        <input type="file" name="fileData2">
+                        <input type="file" name="fileData3">
+                        <input type="file" name="fileData4">
+                        <input type="file" name="fileData5">
                         </td>
                         <td><input type="string" name="category"></td>
                         <td><input type="string" name="price"></td>

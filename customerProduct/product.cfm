@@ -9,13 +9,16 @@
         <cfloop query="show">
             <div class="box ">
                 <div class="col-sm-4">
+                    <div class="row-sm-4"> <img src="#media#" class="w-50" alt="Image Not Found"></div>
+
+                </div>
+                <div class="col-sm-4">
                     <div class="row-sm-4">Product Name: #name#</div>
-                    <div class="row-sm-4"> <img src="#media#" ></div>
                     <div class="row-sm-4">Price: #price#</div>
                     <div class="row-sm-4">Available : #quantity# Items</div>
                     <div><a href="/customerProduct/buynow.cfm?id=#productid#"><button>Buy Now</button></a></div>
                     <div><a href="/customerProduct/addtocart.cfm?id=productid"><button> Add to cart</button> </a></div>
-                    <cfinclude  template="/Rating/ratingview.cfm">        
+                    <!--- <cfinclude  template="/Rating/ratingview.cfm"> --->        
                 </div>
             </div>
         </cfloop>

@@ -342,3 +342,12 @@ Set the path, if code files are placed in separate folders, app should run smoot
 <td>Solutions </td>
 </tr>
 </table>
+<a href="#section1"><button>Top</button></a>
+<div id="section6">Today's outcome</div>
+
+<h1>06/01/2026</h1>
+<p>The scene is that i am to achieve the functionality of uploading images(single or multiple)renaming it by 1++ auto increment and then creating a new folder giving it name of product id </p>
+<p>The Differendce between "upload" and "uploadall"</p>
+<p>Upload will send form normally</p>
+<p>Upload all with send five forms and create an array of  structs</p>
+<p>You need to consider the index of struct rest will be okay,other wise it will stuck to find the index and give unexpected behaviour</p>
