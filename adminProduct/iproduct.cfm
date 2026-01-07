@@ -44,18 +44,15 @@ use URL Param(or apply any possibel) to fix it --->
             action="uploadAll"
             destination="D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory#"
             fileField="fileData"
-            nameConflict="skip"
+            nameConflict="MakeUnique"
             result = "results" />
         
         <cfdump  var="#results.1#">
         <cfdump  var="#results.1.serverfile#">
-        <cffile     
+        <!--- <cffile
             action = "rename" source = "D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory# #results[1].serverfile#"
-            destination = "D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory# #createDirectory# #results[1].serverfile#" attributes="normal">
-        
-
-
-                <!--- <cfdump  var="#CFFILE#"> --->
+            destination = "D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory# #createDirectory# #results[1].serverfile#" attributes="normal"> --->
+            <!--- <cfdump  var="#CFFILE#"> --->
         <!--- <h1>here it is</h1>
         <h1>Results from cffile</h1>
             <cfdump  var="#results#">
@@ -83,11 +80,11 @@ use URL Param(or apply any possibel) to fix it --->
                 insert into Product(name ,description , media ,category,price, cost ,quantity ,mfgdate,expdate,unitid, collection )
                 Values("#form.name#", "#form.description#", "\Media\#createDirectory#<!--- &""&#results.serverfile# --->", "#form.category#","#form.price#", "#form.cost#","#form.quantity#", "#form.mfgdate#", "#form.expdate#", "#form.unitid#", "#form.collection#")
             </cfquery>
-            <!--- <h1>Working till here?</h1>
-                <cfabort> --->
+            <h1>Working till here?</h1>
+                <cfabort>
         <cflocation  url="/AdminProduct/adminproduct.cfm">
     <cfelse>
-        Role not found
+        <h1> Role not found</h1>
         <cflocation  url="/user/loginview.cfm">
     </cfif>
     <!--- <cfelse>
