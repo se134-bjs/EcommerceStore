@@ -4,48 +4,57 @@
     <cfinclude  template="/bootstrap/adminsidebar.cfm">
         <h2>Insert Product Information</h2>
             <form name="forms" method="post" action="iproduct.cfm" enctype="multipart/form-data" preservedata="true" >
-                <table border="2">
-                    <tr>
-                        <th><label>Product Name</label></th>
-                        <th><label>Product Description </label></th>
-                        <th><label for="myfile">Select a file:</label> </th>
-                        <th><label>Product Category</label></th>
-                        <th><label>Product Price</label></th>
-                        <th><label>Product Cost</label></th>
-                        <th><label>Product Quantity</label></th>
-                        <th><label>Product Manufacturing Date</label></th>
-                        <th><label>Product Expiry Date</label></th>
-                        <th><label>Product Unit ID</label></th>
-                        <th><label>Product Collection</label></th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td><input type="string" name="name"></td>
-                        <td><input type="string" name="description"></td>
-                        <td>
-                        <input type="file" name="fileData1">
-                        <input type="file" name="fileData2">
-                        <input type="file" name="fileData3">
-                        <input type="file" name="fileData4">
-                        <input type="file" name="fileData5">
-                        </td>
-                        <td>
-                            <select name="category" id="category" <!--- class="form-control" id="inputEmail4" --->>
-                                <option value="Fashion & Apparel:">Fashion & Apparel:</option>
-                                <option value="Electronics & Technology: ">Electronics & Technology: </option>
-                                <option value="Home & Living:">Home & Living:</option>
-                                <option value="Beauty & Personal Care:">Beauty & Personal Care:</option>
-                                <option value="Food & Beverages:">Food & Beverages:</option>
-                                <option value="Sports & Outdoors:">Sports & Outdoors:</option>
-                            </select>
-                        </td>
-                        <td><input type="string" name="price"></td>
-                        <td><input type="string" name="cost"></td>
-                        <td><input type="string" name="quantity"></td>
-                        <td><input type="date" name="mfgdate"></td>
-                        <td><input type="date" name="expdate"></td>
-                        <td>
-                            <select name="unitid" id="unitid">
+                <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Product Name</label>
+                    <input type="string" class="form-control" name="name" id="inputEmail4" placeholder="Product Name"><!---  value="#id#"> --->
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Product Description </label>
+                    <input type="string" class="form-control"name="description" id="inputEmail4" placeholder="description">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="myfile">Select a file:</label>
+                    <input type="file" class="form-control" name="fileData1" id="inputPassword4" placeholder="fileData1">
+                    <input type="file" class="form-control" name="fileData2" id="inputPassword4" placeholder="fileData1">
+                    <input type="file" class="form-control" name="fileData3" id="inputPassword4" placeholder="fileData1">
+                    <input type="file" class="form-control" name="fileData4" id="inputPassword4" placeholder="fileData1">
+                    <input type="file" class="form-control" name="fileData5" id="inputPassword4" placeholder="fileData1">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Product Category</label>
+                    <select name="category" id="category" <!--- class="form-control" id="inputEmail4" --->>
+                            <option value="Fashion & Apparel:">Fashion & Apparel:</option>
+                            <option value="Electronics & Technology: ">Electronics & Technology: </option>
+                            <option value="Home & Living:">Home & Living:</option>
+                            <option value="Beauty & Personal Care:">Beauty & Personal Care:</option>
+                            <option value="Food & Beverages:">Food & Beverages:</option>
+                            <option value="Sports & Outdoors:">Sports & Outdoors:</option>
+                        </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Product Price</label>
+                    <input type="string" class="form-control" name="price" id="inputPassword4" placeholder="PKR/=">
+                </div>
+                    <div class="form-group col-md-3">
+                    <label for="inputEmail4">Product Cost</label>
+                    <input type="string" class="form-control" name="cost" id="inputEmail4" placeholder="PKR/=">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Product Quantity</label>
+                    <input type="string" class="form-control" name="quantity" id="inputPassword4" placeholder="Available Stock">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Product Manufacturing Date</label>
+                    <input type="date" class="form-control" name="mfgdate" id="inputPassword4" >
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Product Expiry Date</label>
+                    <input type="date" class="form-control" name="expdate" id="expdate" >
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Product Unit ID</label>
+                                                <select name="unitid" id="unitid">
                             <option value="001">001</option>
                             <option value="002">002</option>
                             <option value="003">003</option>
@@ -82,26 +91,25 @@
                             <option value="034">034</option>
                             <option value="035">035</option>
                             <option value="036">036</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="collection" id="collection" <!--- class="form-control" id="inputEmail4" --->>
-                                <option value="New Arrivals:">New Arrivals:</option>
-                                <option value="Best Sellers: ">Best Sellers: </option>
-                                <option value="Seasonal/Holiday:">Seasonal/Holiday:</option>
-                                <option value="Sustainability/Eco-Friendly:">Sustainability/Eco-Friendly:</option>
-                                <option value="Sale/Clearance:">Sale/Clearance:</option>
-                                <option value="Bundles:">Bundles:</option>
-                            </select>
-                        </td>
-                        <td><button type="submit"> Submit</button></td>
-                    </tr>
-                </table>
-                    <input
-                        type = "text" required="true" name = "createDirectory" 
-                    />
-                    
-            </form>
+                        </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Product Collection</label>
+                        <select name="collection" id="collection" class="form-control" id="inputEmail4">
+                            <option value="New Arrivals:">New Arrivals:</option>
+                            <option value="Best Sellers: ">Best Sellers: </option>
+                            <option value="Seasonal/Holiday:">Seasonal/Holiday:</option>
+                            <option value="Sustainability/Eco-Friendly:">Sustainability/Eco-Friendly:</option>
+                            <option value="Sale/Clearance:">Sale/Clearance:</option>
+                            <option value="Bundles:">Bundles:</option>
+                        </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <input
+                    type = "text" required="true" name = "createDirectory" 
+                />
+            </form> 
 <cfelse>
     Role not found
         <cflocation  url="/user/loginview.cfm"> </cfif>
