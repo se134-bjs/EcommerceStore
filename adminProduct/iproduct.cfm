@@ -1,96 +1,84 @@
 <!--- Caution:
-when this page is directly rehitted form value doesnot appear and error is show on yellow page
+when this page is directly rehitted form value doesnot appear and error is show on yellow page(form not found)
 use URL Param(or apply any possibel) to fix it --->
 <cfoutput>
-<cfdump  var="#form#">
+<cfdump  var=#form#>
     <cfif structKeyExists(session, "role")>
     <cfinclude  template="/includes/adminauthentication.cfm">
-
-<!--- <cfif isDefined("#from.createDirectory#")> --->
-
-<!--- <h1>Form is</h1>
-<cfdump  var="#form#">
-<h1>Session is</h1>
-<cfdump  var="#session#">
-<h1>Create Directory is</h1>
-<cfdump  var="#createDirectory#"> --->
-            <!--- The code for create directory start from here --->
+        <!--- <cfdump  var="#createDirectory#">  --->
+        <!--- Older Code of Create Directory  --->
         <cfif IsDefined("FORM.createDirectory")> 
             <cfif FORM.createDirectory is not "">
             <cfset createDirectory = FORM.createDirectory> 
-            <!--- directoryExists ("D:\wheels_proj\CoreProjects\Authentication\adminProduct") --->
-                            <cftry> 
+                    <cftry> 
                     <cfset DirectoryCreate("D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory#")> 
                         <b>Directory #createDirectory# successfully created.</b>
                     <cfcatch name="something"> 
-                    <!--- <h1>Chcatch Message is</h1>
-                    <cfdump  var="#cfcatch.message#">
-                    <h1>Form.createDirectory (#FORM.createDirectory#) is</h1>
-                    <cfdump  var="#FORM.createDirectory#">
-                    <h1>CF Catch() is: </h1>
-                    <cfdump  var="#cfcatch#">
-                                        <h1>Template Here</h1>
-                    <cfdump  var="#cfcatch.TagContext#"> ---> 
-                    <!--- <cfdump  var="#cfcatch#"> --->
                         <b>Error Message:</b>#cfcatch.message#<br/> 
                         <b>Error Detail:</b>#cfcatch.Detail#
                     </cfcatch> 
                 </cftry> 
             </cfif>
         </cfif>
-            <!--- create directory code is till here --->
-            <!--- <h1>CFFIle is here if it is dumped</h1> --->
+        <!--- New Code od create Directory --->
+        <!--- Define the path for the new folder --->
+
+<cfset Path = "D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory#">
+<cfdump  var="#Path#">
+
         <cffile 
             action="uploadAll"
-            destination="D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory#"
+            allowedextensions=".png,.gif,.cfm,.jfif,.webp" 
+            destination=#Path#
             fileField="fileData"
-            nameConflict="skip"
+            nameConflict="MakeUnique"
             result = "results" />
+            <cfset Src =  Path & productid>
+        <cffile
+            action = "rename"  
+            destination = #Path# 
+            source =Src>  
+            <!--- attributes = "file attributes list"  
+            mode = "mode" --->
         
+        <cfdump  var="#results#">
         <cfdump  var="#results.1#">
         <cfdump  var="#results.1.serverfile#">
-        <cffile     
-            action = "rename" source = "D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory# #results[1].serverfile#"
-            destination = "D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory# #createDirectory# #results[1].serverfile#" attributes="normal">
         
-
-
-                <!--- <cfdump  var="#CFFILE#"> --->
-        <!--- <h1>here it is</h1>
-        <h1>Results from cffile</h1>
-            <cfdump  var="#results#">
-            <!--- <cfdump  var="#results.serverfile#"> --->
-        <h1>Finally</h1>
-        will it work --->
-        <!--- <cfset myArray = "#results.array#">
-            <cfdump  var="#myArray#"> --->
-            <!--- <cfdump  var="#results#"> --->
-            <!--- IsBoolean("#results.fileexisted#")
-            isNumeric("#results.fileexisted#")
-            <cfdump  var="#results.fileexisted#">
-            <cfdump  var="#results.contenttype#">
-            <cfdump  var="#results.contentsubtype#">
-            <cfdump  var="#results.clientfilename#">
-            <cfdump  var="#results.clientfileext#">
-            <cfdump  var="#results.clientfile#">
-            <cfdump  var="#results.clientdirectory#">
-            <cfdump  var="#results.attemptedserverfile#">
-            <cfdump var=#results.serverfilename#> --->
-            <!--- did it work --->
-        <!--- <cfdirectory action="create" directory="D:\wheels_proj\CoreProjects\Authentication\Media">
-        <cfset fileName = toString(result.serverfile)> --->
+        Variables
+        <cfset media= "/Media/" & createDirectory & "/" & results.1.serverfile>
+        <cfset media2= "/Media/" & createDirectory & "/" & results.2.serverfile>
+        <cfset media3= "/Media/" & createDirectory & "/" & results.3.serverfile>
+        <cfset media4= "/Media/" & createDirectory & "/" & results.4.serverfile>
+        <cfset media5= "/Media/" & createDirectory & "/" & results.5.serverfile>
+        <Variables>
+        <cfset results.1.clientfilename= 1>
+        <cfset results.2.clientfilename= 2>
+        <cfset results.3.clientfilename= 3>
+        <cfset results.4.clientfilename= 4>
+        <cfset results.5.clientfilename= 5>
             <cfquery name = "insertrow" datasource = "edata">
-                insert into Product(name ,description , media ,category,price, cost ,quantity ,mfgdate,expdate,unitid, collection )
-                Values("#form.name#", "#form.description#", "\Media\#createDirectory#<!--- &""&#results.serverfile# --->", "#form.category#","#form.price#", "#form.cost#","#form.quantity#", "#form.mfgdate#", "#form.expdate#", "#form.unitid#", "#form.collection#")
+                insert into Product(name ,description , media, media2, media3, media4, media5 ,category,price, cost ,quantity ,mfgdate,expdate,unitid, collection )
+                Values("#form.name#", "#form.description#", "#media#" ,"#media2#" ,"#media3#" ,"#media4#" ,"#media5#" , "#form.category#","#form.price#", "#form.cost#","#form.quantity#", "#form.mfgdate#", "#form.expdate#", "#form.unitid#", "#form.collection#")
             </cfquery>
-            <!--- <h1>Working till here?</h1>
-                <cfabort> --->
+            <cfset FolderPath = expandPath("D:\wheels_proj\CoreProjects\Authentication\Ecommerce\EcommerceStore\Media\#createDirectory#")>
+
+<!--- Check if the directory already exists before creating it --->
+<cfif NOT DirectoryExists(FolderPath)>
+    <cfdirectory
+        action="create"
+        directory="#FolderPath#"
+        mode="777"
+    />
+    <cfoutput>Directory created: #FolderPath#</cfoutput>
+<cfelse>
+    <cfoutput>Directory already exists: #FolderPath#</cfoutput>
+</cfif>
+            <h1>Working till here?</h1>
+                <cfabort>
         <cflocation  url="/AdminProduct/adminproduct.cfm">
     <cfelse>
-        Role not found
+        <h1> Role not found</h1>
         <cflocation  url="/user/loginview.cfm">
     </cfif>
-    <!--- <cfelse>
-    <cflocation  url="/adminproduct/insertproduct.cfm">
-    </cfif> --->
 </cfoutput>

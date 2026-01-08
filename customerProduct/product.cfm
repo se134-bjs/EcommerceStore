@@ -21,8 +21,15 @@
                     <!--- <cfinclude  template="/Rating/ratingview.cfm"> --->        
                 </div>
             </div>
-        </cfloop>
     </div>
+    <div class="col-sm-10">
+    <div class="col-sm-4"> <img src="#media2#" class="w-50" alt="Image Not Found"></div>
+    <div class="col-sm-4"> <img src="#media3#" class="w-50" alt="Image Not Found"></div>
+    <div class="col-sm-4"> <img src="#media4#" class="w-50" alt="Image Not Found"></div>
+    <div class="col-sm-4"> <img src="#media5#" class="w-50" alt="Image Not Found"></div>
+    </div>
+            </cfloop>
+
 <cfquery name="rating" datasource="edata">
 <!--- Select Top condition --->
 select *
