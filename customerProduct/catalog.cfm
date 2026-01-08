@@ -18,7 +18,7 @@
         <h1>The ProductName variable is containing</h1>
         <cfdump  var="#name#"> --->
             <a class="link-dark link-underline-opacity-100-hover"  href="product.cfm?id=#productid#" > 
-                <div class="row ">
+                <div class="row " display="flex">
                     <!--- <div class="row display:grid"> --->
                         <div class="col-sm-4">
                             <!--- <button> --->
