@@ -33,11 +33,11 @@ use URL Param(or apply any possibel) to fix it --->
             fileField="fileData"
             nameConflict="MakeUnique"
             result = "results" />
-            <cfset Src =  Path & productid>
+            <cfset Src =  #Path# <!--- & productid ---> >
         <cffile
             action = "rename"  
             destination = #Path# 
-            source =Src>  
+            source =#Src#>  
             <!--- attributes = "file attributes list"  
             mode = "mode" --->
         
@@ -46,7 +46,7 @@ use URL Param(or apply any possibel) to fix it --->
         <cfdump  var="#results.1.serverfile#">
         
         Variables
-        <cfset media= "/Media/" & createDirectory & "/" & results.1.serverfile>
+        <cfset media = "/Media/" & createDirectory & "/" & results.1.serverfile>
         <cfset media2= "/Media/" & createDirectory & "/" & results.2.serverfile>
         <cfset media3= "/Media/" & createDirectory & "/" & results.3.serverfile>
         <cfset media4= "/Media/" & createDirectory & "/" & results.4.serverfile>
