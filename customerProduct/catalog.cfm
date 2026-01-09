@@ -55,4 +55,12 @@
             </a>
         </cfloop>
     </div>
+<!---              <cfset Application.result = "#results#">
+ --->
+        <cfdump var="#Application.result#">
+        <cfdump var="#results.1.clientfilename#">
+        <cfdump var="#results.2.clientfilename#">
+        <cfdump var="#results.3.clientfilename#">
+        <cfdump var="#results.4.clientfilename#">
+        <cfdump var="#results.5.clientfilename#"> 
 </cfoutput>
